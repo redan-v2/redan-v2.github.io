@@ -1,4 +1,7 @@
-//Acid Grotesk Font
+//Fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&display=swap');
+
 @font-face {
     font-family: 'Acid Grotesk';
     src: url(fonts/acid-grotesk-normal.otf);
@@ -17,10 +20,16 @@
     font-weight: 700;
 }
 
+@font-face {
+    font-family: 'SF Pro';
+    src: url(fonts/SFPRODISPLAYREGULAR.OTF);
+    font-weight: 700;
+}
 //colors
 $primary: #F9668A;
 $black: #1A1A1A;
 $sub-grey: #717171;
+$dark-grey:#72767B; 
 
 //selection
 ::selection {
@@ -73,6 +82,13 @@ body {
 }
 
 .container {
+    //max-width: 64rem;
+    width: 93%;
+    margin: 0 auto;
+    //border: 1px solid red;
+}
+
+.container-casestudy {
     max-width: 64rem;
     width: 71%;
     margin: 0 auto;
@@ -118,35 +134,117 @@ p {
     padding: 0;
 }
 
+//intro animation
+.intro-splash {
+	position: fixed;
+	z-index: 1;
+	left: 0%;
+	top: 0%;
+	width: 100%;
+	height: 100vh;
+	background-color: $primary;
+	transition: 1s;
+}
+
+.logo-header{
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #D9DCD6;
+}
+
+.logo{
+	position: relative;
+	display: inline-block;
+	bottom: -20px;
+	opacity: 0;
+}
+
+.logo.active{
+	bottom: 0;
+	opacity: 1;
+	transition: ease-in-out 0.5s;
+}
+
+.logo.fade{
+	bottom: 0;
+	opacity: 0;
+	transition: ease-in-out 0.5s;
+}
+
+.splash-img {
+    height: 48px;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.cursor {
+    margin-right: 0.5rem;
+}
+
 
 // navigation
+
 
     nav {
         display: flex;
         justify-content: space-between;
-        font-size: 1rem;
+        font-size: 0.875rem;
         font-weight: 400;
-        align-items: center;
-        margin: 2rem 0;
+        align-items: flex-start;
+        margin: 2rem 0 8rem 0;
         //border: 1px solid red;
-        
+
         .nav-left {
-            a {
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-                
+            position: relative;
+
+            :hover {
+
+                cursor: help;
+
+                .nav-hover {
+                    opacity: 1;
+                    
+                    
+                }
+
+                .nav-logo {
+                    opacity: 0;
+                }
+            }
+
+            .nav-logo {
+                transition: opacity 0.2s ease-in-out;
+            }
+
+            .nav-hover {
+                object-fit: cover;
+                object-position: 50% 25%;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+            
+            img {
+                width: 3.9375rem;
+                height: 3.937rem;
+                position: absolute;
+                top: 0;
+                left: 0;
             }
         }
+        
+        
 
         .nav-right {
+            margin: 0;
             list-style: none;
             display: flex;
             gap: 1.25rem;
 
             a:hover {
                 color: $primary;
-                transition: all 0.3s ease;
             }
         }
     a {
@@ -154,6 +252,7 @@ p {
         color: $black;
         padding: 0;
         margin: 0;
+        transition: all 0.3s ease;
         
         :hover {
             color: $primary;
@@ -168,6 +267,19 @@ p {
 }
 
 // main content
+
+@keyframes subtleEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+    opacity: 0;
+  transform: translateY(20px);
+  animation: subtleEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
 .intro {
     h1 {
@@ -251,6 +363,7 @@ p {
         align-items: center;
         gap: 1rem;
         margin-bottom: 1.25rem;
+        border-radius: 0.375rem;
 
 
         .bulb {
@@ -379,7 +492,7 @@ p {
 
     img {
         width: 100%;
-        border-radius: 0.375rem;
+        //border-radius: 0.375rem;
     }
 }
 
@@ -451,9 +564,10 @@ p {
 
 footer {
     margin-top: 5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 
    p {
+    font-size: 0.875rem;
     color: #A1A1A1;
    }
 
@@ -627,18 +741,171 @@ footer {
 
 .home {
 
+
     .header {
-        margin: 5rem 0 0 0;
+        margin: 5rem 0 2.2rem 0;
+        display: flex;
+        gap: 1rem;
+
+        p {
+            font-size: 0.875rem;
+            //border: 1px solid red;
+            margin: 0 0 0.2rem 0;
+            font-weight: 400;
+        }
+
+        .h-col1, .h-col2 {
+            width: 1px;
+            flex: 1;
+            
+            // h1 {
+            //     width: 65%;
+            // }
+        }
+
+        .h-col2 {
+            display: flex;
+
+            .links {
+                width: 33%;
+            }
+
+            .currently {
+                width: 66%;
+            }
+        }
+
+        .links {
+
+            font-size: 0.875rem;
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    margin-bottom: 0.2rem;
+                    padding: 0;
+                }
+
+                a {
+                    color: $black;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                                color: $primary;
+                            }
+                }
+
+                span {
+                    color: $primary;
+                    font-family: 'SF Pro', Arial, Helvetica, sans-serif;
+                    margin-left: 4px;
+                    //border: 1px solid red;
+                }
+            }
+        }
+
+        .currently {
+            b {
+                color: $black;
+                //border: 1px solid red;
+            }
+            
+            p {
+                color: #717274;
+            }
+        }
     }
+
+    .projects {
+        display: flex;
+        gap: 1rem;
+
+        a {
+            text-decoration: none;
+        }
+
+        p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .project-col1, .project-col2 {
+            width: 1px;
+            flex: 1;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .project-cover {
+            margin-bottom: 1.6rem;
+
+             &:hover {
+            img {
+               transform: scale(1.2);
+            }
+
+            
+        }
+
+        &-img {
+            overflow: hidden;
+            transition: 0.3s ease;
+            border: 1px solid #E5E9EB;
+
+            img {
+                display: block;
+                object-fit: cover;
+                transition: all 0.3s ease;
+                 
+            }
+
+            video {
+                display: block;
+                object-fit: cover;
+                height: 30rem;
+                width: 100%;
+            }
+
+
+        }
+
+            .project-title {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 0.6rem;
+                //border: 1px solid red;
+                padding: 0;
+            }
+        }
+
+        .subtitle {
+            color: #909294;
+        }
+    }
+
+
+    h3 {
+        font-family: 'Geist Mono';
+        color: $dark-grey;
+        font-size: 0.875rem;
+    }
+
     h1 {
         color: #1A1A1A;
         font-family: "Acid Grotesk";
-        font-size: 3rem;
+        font-size: 1.375rem;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        margin: 0 0 1.5rem 0;
+        //margin: 0 0 1.5rem 0;
         padding: 0;
+        margin: 0;
 
         span {
             color: $primary;
@@ -661,52 +928,3 @@ footer {
     text-decoration: none;
 }
 
-
-.project-box-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30rem;
-
-    .project-box {
-        width: 49.21875%;
-        height: 25.125rem;
-
-        &:hover {
-            img {
-               transform: scale(1.2);
-            }
-        }
-
-        &-img {
-            overflow: hidden;
-        }
-
-        img {
-            width: 100%;
-            height: 25.125rem;
-            border-radius: 0.25rem;
-            object-fit: cover;
-            transition: all .4s ease;
-            
-        }
-
-        p {
-            margin: 0.4rem 0 0.4rem 0;
-            color: $black;
-            font-family: "Acid Grotesk";
-            font-size: 1.125rem;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-        }
-
-        .subtitle {
-            color: #6F6F6F;
-            font-family: "Acid Grotesk";
-            font-size: 1.125rem;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-        }
-    }
-}

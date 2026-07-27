@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&display=swap");
 @font-face {
   font-family: "Acid Grotesk";
   src: url(fonts/acid-grotesk-normal.otf);
@@ -11,6 +12,11 @@
 @font-face {
   font-family: "Acid Grotesk";
   src: url(fonts/acid-grotesk-bold.otf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: "SF Pro";
+  src: url(fonts/SFPRODISPLAYREGULAR.OTF);
   font-weight: 700;
 }
 ::-moz-selection {
@@ -61,6 +67,11 @@ body {
 }
 
 .container {
+  width: 93%;
+  margin: 0 auto;
+}
+
+.container-casestudy {
   max-width: 64rem;
   width: 71%;
   margin: 0 auto;
@@ -105,33 +116,108 @@ p {
   padding: 0;
 }
 
+.intro-splash {
+  position: fixed;
+  z-index: 1;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100vh;
+  background-color: #F9668A;
+  transition: 1s;
+}
+
+.logo-header {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #D9DCD6;
+}
+
+.logo {
+  position: relative;
+  display: inline-block;
+  bottom: -20px;
+  opacity: 0;
+}
+
+.logo.active {
+  bottom: 0;
+  opacity: 1;
+  transition: ease-in-out 0.5s;
+}
+
+.logo.fade {
+  bottom: 0;
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+}
+
+.splash-img {
+  height: 48px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.cursor {
+  margin-right: 0.5rem;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 400;
-  align-items: center;
-  margin: 2rem 0;
+  align-items: flex-start;
+  margin: 2rem 0 8rem 0;
 }
-nav .nav-left a {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+nav .nav-left {
+  position: relative;
+}
+nav .nav-left :hover {
+  cursor: help;
+}
+nav .nav-left :hover .nav-hover {
+  opacity: 1;
+}
+nav .nav-left :hover .nav-logo {
+  opacity: 0;
+}
+nav .nav-left .nav-logo {
+  transition: opacity 0.2s ease-in-out;
+}
+nav .nav-left .nav-hover {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 25%;
+     object-position: 50% 25%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+nav .nav-left img {
+  width: 3.9375rem;
+  height: 3.937rem;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 nav .nav-right {
+  margin: 0;
   list-style: none;
   display: flex;
   gap: 1.25rem;
 }
 nav .nav-right a:hover {
   color: #F9668A;
-  transition: all 0.3s ease;
 }
 nav a {
   text-decoration: none;
   color: #1A1A1A;
   padding: 0;
   margin: 0;
+  transition: all 0.3s ease;
 }
 nav a :hover {
   color: #F9668A;
@@ -140,6 +226,18 @@ nav a :hover {
 nav p {
   margin: 0;
   padding: 0;
+}
+
+@keyframes subtleEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+main {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: subtleEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .intro h1 {
@@ -205,6 +303,7 @@ nav p {
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.25rem;
+  border-radius: 0.375rem;
 }
 .problem .question-box .bulb {
   font-size: 5rem;
@@ -304,7 +403,6 @@ nav p {
 }
 .process img {
   width: 100%;
-  border-radius: 0.375rem;
 }
 
 .final-prototype .vid-1-container {
@@ -359,11 +457,14 @@ nav p {
 
 footer {
   margin-top: 5rem;
-  margin-bottom: 2rem;
-  text-align: center;
+  margin-bottom: 1rem;
 }
 footer p {
+  font-size: 0.875rem;
   color: #A1A1A1;
+}
+footer {
+  text-align: center;
 }
 
 @media (max-width: 1012px) {
@@ -490,17 +591,126 @@ footer p {
   }
 }
 .home .header {
-  margin: 5rem 0 0 0;
+  margin: 5rem 0 2.2rem 0;
+  display: flex;
+  gap: 1rem;
+}
+.home .header p {
+  font-size: 0.875rem;
+  margin: 0 0 0.2rem 0;
+  font-weight: 400;
+}
+.home .header .h-col1, .home .header .h-col2 {
+  width: 1px;
+  flex: 1;
+}
+.home .header .h-col2 {
+  display: flex;
+}
+.home .header .h-col2 .links {
+  width: 33%;
+}
+.home .header .h-col2 .currently {
+  width: 66%;
+}
+.home .header .links {
+  font-size: 0.875rem;
+}
+.home .header .links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.home .header .links ul li {
+  margin-bottom: 0.2rem;
+  padding: 0;
+}
+.home .header .links ul a {
+  color: #1A1A1A;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.home .header .links ul a:hover {
+  color: #F9668A;
+}
+.home .header .links ul span {
+  color: #F9668A;
+  font-family: "SF Pro", Arial, Helvetica, sans-serif;
+  margin-left: 4px;
+}
+.home .header .currently b {
+  color: #1A1A1A;
+}
+.home .header .currently p {
+  color: #717274;
+}
+.home .projects {
+  display: flex;
+  gap: 1rem;
+}
+.home .projects a {
+  text-decoration: none;
+}
+.home .projects p {
+  font-size: 1rem;
+  margin: 0;
+}
+.home .projects .project-col1, .home .projects .project-col2 {
+  width: 1px;
+  flex: 1;
+}
+.home .projects .project-col1 img, .home .projects .project-col2 img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.home .projects .project-cover {
+  margin-bottom: 1.6rem;
+}
+.home .projects .project-cover:hover img {
+  transform: scale(1.2);
+}
+.home .projects .project-cover-img {
+  overflow: hidden;
+  transition: 0.3s ease;
+  border: 1px solid #E5E9EB;
+}
+.home .projects .project-cover-img img {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease;
+}
+.home .projects .project-cover-img video {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 30rem;
+  width: 100%;
+}
+.home .projects .project-cover .project-title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+  padding: 0;
+}
+.home .projects .subtitle {
+  color: #909294;
+}
+.home h3 {
+  font-family: "Geist Mono";
+  color: #72767B;
+  font-size: 0.875rem;
 }
 .home h1 {
   color: #1A1A1A;
   font-family: "Acid Grotesk";
-  font-size: 3rem;
+  font-size: 1.375rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin: 0 0 1.5rem 0;
   padding: 0;
+  margin: 0;
 }
 .home h1 span {
   color: #F9668A;
@@ -518,45 +728,4 @@ footer p {
 
 .graphixplore-link {
   text-decoration: none;
-}
-
-.project-box-container {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30rem;
-}
-.project-box-container .project-box {
-  width: 49.21875%;
-  height: 25.125rem;
-}
-.project-box-container .project-box:hover img {
-  transform: scale(1.2);
-}
-.project-box-container .project-box-img {
-  overflow: hidden;
-}
-.project-box-container .project-box img {
-  width: 100%;
-  height: 25.125rem;
-  border-radius: 0.25rem;
-  -o-object-fit: cover;
-     object-fit: cover;
-  transition: all 0.4s ease;
-}
-.project-box-container .project-box p {
-  margin: 0.4rem 0 0.4rem 0;
-  color: #1A1A1A;
-  font-family: "Acid Grotesk";
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-.project-box-container .project-box .subtitle {
-  color: #6F6F6F;
-  font-family: "Acid Grotesk";
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }/*# sourceMappingURL=style.css.map */

@@ -34,3 +34,24 @@ if (shouldPlayIntro) {
 } else {
   intro.style.display = "none";
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const OFFSET_X = 14;
+  const OFFSET_Y = 18;
+ 
+  // Find every element on the page that has a .cursor-label inside it
+  document.querySelectorAll('.cursor-label').forEach((label) => {
+    const target = label.parentElement;
+    if (!target) return;
+ 
+    target.addEventListener('mousemove', (e) => {
+      label.style.transform = `translate(${e.clientX + OFFSET_X}px, ${e.clientY + OFFSET_Y}px)`;
+    });
+ 
+    // Reset position when the mouse leaves, so it doesn't linger
+    // off in the wrong spot if the user re-enters from elsewhere
+    target.addEventListener('mouseleave', () => {
+      label.style.transform = 'translate(-9999px, -9999px)';
+    });
+  });
+});

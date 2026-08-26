@@ -12,7 +12,12 @@
 }
 @font-face {
   font-family: "Acid Grotesk";
-  src: url(fonts/acid-grotesk-bold.otf);
+  src: url(fonts/acid-grotesk-medium.otf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Acid Groesk";
+  src: url(fonts/AcidGrotesk-Medium.otf);
   font-weight: 700;
 }
 @font-face {
@@ -88,7 +93,7 @@ h1 {
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  line-height: 1.2;
 }
 
 h2 {
@@ -98,30 +103,31 @@ h2 {
   font-weight: 500;
   padding: 0;
   margin: 0 0 0.75rem 0;
-  letter-spacing: 0.04rem;
+  letter-spacing: 0.06em;
 }
 
 h3 {
-  color: #363636;
+  color: #1A1A1A;
   font-size: 1.125rem;
   font-weight: 500;
   padding: 0;
   margin: 0 0 0.75rem 0;
-  letter-spacing: 0.03rem;
+  letter-spacing: 0.045em;
 }
 
 p {
   color: #555555;
   font-size: 0.875rem;
   font-weight: 500;
-  line-height: 1.3rem;
+  line-height: 1.5;
   margin: 0;
   padding: 0;
-  letter-spacing: 0.03rem;
+  letter-spacing: 0.045em;
 }
 
 b {
   color: #363636;
+  font-weight: 700;
 }
 
 .intro-splash {
@@ -179,10 +185,23 @@ nav {
   font-size: 0.875rem;
   font-weight: 400;
   align-items: flex-start;
-  margin: 2rem 0 8rem 0;
+  margin: 2rem 0 4rem 0;
+}
+@media (max-width: 1012px) {
+  nav {
+    margin: 2rem 0;
+  }
 }
 nav .nav-left {
   position: relative;
+  width: 3.9375rem;
+  height: 3.937rem;
+}
+@media (max-width: 1012px) {
+  nav .nav-left {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }
 nav .nav-left :hover {
   cursor: help;
@@ -216,13 +235,20 @@ nav .nav-right {
   list-style: none;
   display: flex;
   gap: 1.25rem;
+  font-weight: 500;
+}
+nav .nav-right .nav-selected {
+  color: #F9668A;
+}
+nav .nav-right .nav-selected:hover {
+  color: #1A1A1A;
 }
 nav .nav-right a:hover {
   color: #F9668A;
 }
 nav a {
   text-decoration: none;
-  color: #363636;
+  color: #1A1A1A;
   padding: 0;
   margin: 0;
   transition: all 0.3s ease;
@@ -319,17 +345,14 @@ main {
   padding: 0;
 }
 .problem .question-box .statement {
-  color: #363636;
+  color: #1A1A1A;
   font-size: 1.25rem;
   font-weight: 700;
-  line-height: normal;
+  line-height: 1.2;
   margin: 0;
   padding: 0;
   width: 75%;
   max-width: 46.4375rem;
-}
-.problem p {
-  margin-bottom: 2rem;
 }
 
 .users-audience .persona-imgs {
@@ -373,7 +396,7 @@ main {
   font-style: normal;
   font-weight: 700;
   margin: 0;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.04rem;
 }
 
 .scope {
@@ -500,7 +523,355 @@ footer {
   text-align: center;
 }
 
+.home .header {
+  margin: 5rem 0 2.2rem 0;
+  display: flex;
+  gap: 1rem;
+}
 @media (max-width: 1012px) {
+  .home .header {
+    display: block;
+    margin-bottom: 0;
+  }
+  .home .header h1 {
+    font-size: 1.125rem;
+  }
+  .home .header h3 {
+    font-size: 0.75rem;
+  }
+}
+.home .header p {
+  font-size: 0.875rem;
+  margin: 0 0 0.2rem 0;
+  font-weight: 400;
+}
+.home .header .h-col1, .home .header .h-col2 {
+  width: 1px;
+  flex: 1;
+}
+@media (max-width: 1012px) {
+  .home .header .h-col1, .home .header .h-col2 {
+    width: 100%;
+  }
+}
+@media (max-width: 1012px) {
+  .home .header .h-col1 {
+    margin-bottom: 2rem;
+  }
+}
+.home .header .h-col2 {
+  display: flex;
+}
+.home .header .h-col2 .links {
+  width: 33%;
+}
+.home .header .h-col2 .currently {
+  width: 66%;
+}
+@media (max-width: 1012px) {
+  .home .header .h-col2 {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  .home .header .h-col2 .links {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .home .header .h-col2 .currently {
+    width: 100%;
+  }
+}
+.home .header .links {
+  font-size: 0.875rem;
+}
+.home .header .links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.home .header .links ul li {
+  margin-bottom: 0.2rem;
+  padding: 0;
+}
+.home .header .links ul a {
+  color: #1A1A1A;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.home .header .links ul a:hover {
+  color: #F9668A;
+}
+.home .header .links ul span {
+  color: #F9668A;
+  font-family: "SF Pro", Arial, Helvetica, sans-serif;
+  margin-left: 4px;
+}
+.home .header .currently b {
+  color: #363636;
+}
+.home .header .currently p {
+  color: #717274;
+}
+.home .projects {
+  display: flex;
+  gap: 1rem;
+}
+@media (max-width: 1012px) {
+  .home .projects {
+    display: block;
+  }
+  .home .projects .project-col1, .home .projects .project-col2 {
+    width: 100%;
+  }
+}
+.home .projects a {
+  text-decoration: none;
+}
+.home .projects p {
+  font-size: 1rem;
+  margin: 0;
+}
+.home .projects .project-col1, .home .projects .project-col2 {
+  width: 1px;
+  flex: 1;
+}
+@media (max-width: 1012px) {
+  .home .projects .project-col1, .home .projects .project-col2 {
+    width: 100%;
+  }
+}
+.home .projects .project-col1 img, .home .projects .project-col2 img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.home .projects .project-cover {
+  margin-bottom: 1.6rem;
+}
+.home .projects .project-cover:hover img {
+  transform: scale(1.2);
+}
+.home .projects .project-cover-img {
+  overflow: hidden;
+  transition: 0.3s ease;
+  border: 1px solid #E5E9EB;
+}
+.home .projects .project-cover-img img {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease;
+}
+.home .projects .project-cover-img video {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 30rem;
+  width: 100%;
+}
+.home .projects .project-cover .project-title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+  padding: 0;
+}
+@media (max-width: 1012px) {
+  .home .projects .project-cover .project-title p {
+    font-size: 0.875rem;
+  }
+}
+.home .projects .subtitle {
+  color: #909294;
+}
+.home h3 {
+  font-family: "Geist Mono";
+  color: #919191;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.home h1 {
+  color: #1A1A1A;
+  font-family: "Acid Grotesk";
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 0;
+  margin: 0;
+}
+.home h1 span {
+  color: #F9668A;
+}
+.home p {
+  color: #4E4E4E;
+  font-family: "Acid Grotesk";
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+}
+.home .easternusa, .home .soundmesh {
+  cursor: none; /* hide the real cursor while hovering */
+}
+
+.cursor-label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-9999px, -9999px); /* start off-screen */
+  background: #F9668A;
+  color: #fafaff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+  pointer-events: none; /* never block hover/click */
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 999;
+  letter-spacing: 0.04rem;
+}
+
+.easternusa:hover .cursor-label {
+  opacity: 1;
+}
+
+.soundmesh:hover .cursor-label {
+  opacity: 1;
+}
+
+.graphixplore-link {
+  text-decoration: none;
+}
+
+.about-me .gallery-box:hover .media {
+  transform: translate(0px, -4px);
+}
+.about-me .gallery-box:hover .caption-hover {
+  opacity: 1;
+}
+.about-me .gallery-box h4 {
+  display: inline-block;
+  font-weight: 600;
+  color: #72767B;
+  font-size: 0.75rem;
+}
+.about-me .gallery-box .caption-hover {
+  margin-left: 0.15rem;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+.about-me .gallery-box .media {
+  transition: all 0.2s ease-in-out;
+}
+.about-me .gallery-box video {
+  height: 20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.about-me span {
+  color: #F9668A;
+}
+.about-me p {
+  margin: 1em 0;
+}
+.about-me a {
+  transition: all 0.2s ease-in-out;
+}
+.about-me a:visited {
+  color: #363636;
+}
+.about-me a:hover {
+  color: #F9668A;
+}
+.about-me-intro {
+  width: 41%;
+  max-width: 34.4375rem;
+}
+.about-me-gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.7rem;
+  width: 100%;
+}
+.about-me-gallery .media {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1200px) {
+  .header-br {
+    display: none;
+  }
+  .about-me .gallery-box:hover .media {
+    transform: translate(0px, -4px);
+  }
+  .about-me .gallery-box:hover .caption-hover {
+    opacity: 1;
+  }
+  .about-me .gallery-box h4 {
+    display: inline-block;
+    font-weight: 600;
+    color: #72767B;
+    font-size: 0.75rem;
+  }
+  .about-me .gallery-box .caption-hover {
+    margin-left: 0.15rem;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+  .about-me .gallery-box .media {
+    transition: all 0.2s ease-in-out;
+  }
+  .about-me .gallery-box video {
+    height: 20rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .about-me span {
+    color: #F9668A;
+  }
+  .about-me p {
+    margin: 1em 0;
+  }
+  .about-me a {
+    transition: all 0.2s ease-in-out;
+  }
+  .about-me a:visited {
+    color: #363636;
+  }
+  .about-me a:hover {
+    color: #F9668A;
+  }
+  .about-me-intro {
+    width: 100%;
+    max-width: none;
+  }
+  .about-me-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+    width: 100%;
+  }
+  .about-me-gallery .media {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 1012px) {
+  .nav-left .nav-hover, .nav-left .nav-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .header-br {
+    display: none;
+  }
   h2 {
     font-size: 0.9375rem;
   }
@@ -508,12 +879,13 @@ footer {
     font-size: 1.2rem;
   }
   p {
-    color: #363636;
-    font-size: 0.9375rem;
-    font-weight: 400;
-    line-height: 1.5rem; /* 133.333% */
+    color: #555555;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
     margin: 0;
     padding: 0;
+    letter-spacing: 0.045em;
   }
   .container-casestudy {
     max-width: none;
@@ -591,6 +963,7 @@ footer {
     font-size: 0.9375rem;
     font-weight: 400;
     line-height: 1.5rem; /* 133.333% */
+    letter-spacing: 0.045em;
   }
   .scope li {
     line-height: 2rem;
@@ -622,175 +995,69 @@ footer {
   .portfolio-space .portfolio-space-img img {
     width: 100%;
   }
-}
-.home .header {
-  margin: 5rem 0 2.2rem 0;
-  display: flex;
-  gap: 1rem;
-}
-.home .header p {
-  font-size: 0.875rem;
-  margin: 0 0 0.2rem 0;
-  font-weight: 400;
-}
-.home .header .h-col1, .home .header .h-col2 {
-  width: 1px;
-  flex: 1;
-}
-.home .header .h-col2 {
-  display: flex;
-}
-.home .header .h-col2 .links {
-  width: 33%;
-  color: #1a1a1a;
-}
-.home .header .h-col2 .currently {
-  width: 66%;
-}
-.home .header .links {
-  font-size: 0.875rem;
-}
-.home .header .links ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.home .header .links ul li {
-  margin-bottom: 0.2rem;
-  padding: 0;
-}
-.home .header .links ul a {
-  color: #363636;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.home .header .links ul a:hover {
-  color: #F9668A;
-}
-.home .header .links ul span {
-  color: #F9668A;
-  font-family: "SF Pro", Arial, Helvetica, sans-serif;
-  margin-left: 4px;
-}
-.home .header .currently b {
-  color: #363636;
-}
-.home .header .currently p {
-  color: #717274;
-}
-.home .projects {
-  display: flex;
-  gap: 1rem;
-}
-.home .projects a {
-  text-decoration: none;
-}
-.home .projects p {
-  font-size: 1rem;
-  margin: 0;
-}
-.home .projects .project-col1, .home .projects .project-col2 {
-  width: 1px;
-  flex: 1;
-}
-.home .projects .project-col1 img, .home .projects .project-col2 img {
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.home .projects .project-cover {
-  margin-bottom: 1.6rem;
-}
-.home .projects .project-cover:hover img {
-  transform: scale(1.2);
-}
-.home .projects .project-cover-img {
-  overflow: hidden;
-  transition: 0.3s ease;
-  border: 1px solid #E5E9EB;
-}
-.home .projects .project-cover-img img {
-  display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
-  transition: all 0.3s ease;
-}
-.home .projects .project-cover-img video {
-  display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 30rem;
-  width: 100%;
-}
-.home .projects .project-cover .project-title {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.6rem;
-  padding: 0;
-}
-.home .projects .subtitle {
-  color: #909294;
-}
-.home h3 {
-  font-family: "Geist Mono";
-  color: #919191;
-  font-size: 0.875rem;
-  font-weight: 400;
-}
-.home h1 {
-  color: #1A1A1A;
-  font-family: "Acid Grotesk";
-  font-size: 1.375rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  padding: 0;
-  margin: 0;
-}
-.home h1 span {
-  color: #F9668A;
-}
-.home p {
-  color: #4E4E4E;
-  font-family: "Acid Grotesk";
-  font-size: 1.375rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin: 0 0 1.5rem 0;
-  padding: 0;
-}
-.home .easternusa, .home .soundmesh {
-  cursor: none; /* hide the real cursor while hovering */
-}
-
-.cursor-label {
-  position: fixed;
-  top: 0;
-  left: 0;
-  transform: translate(-9999px, -9999px); /* start off-screen */
-  background: #F9668A;
-  color: #fafaff;
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 6px 10px;
-  border-radius: 100px;
-  white-space: nowrap;
-  pointer-events: none; /* never block hover/click */
-  opacity: 0;
-  transition: opacity 0.15s ease;
-  z-index: 999;
-  letter-spacing: 0.04rem;
-}
-
-.easternusa:hover .cursor-label {
-  opacity: 1;
-}
-
-.soundmesh:hover .cursor-label {
-  opacity: 1;
-}
-
-.graphixplore-link {
-  text-decoration: none;
+  .about-me .gallery-box:hover .media {
+    transform: translate(0px, -4px);
+  }
+  .about-me .gallery-box:hover .caption-hover {
+    opacity: 1;
+  }
+  .about-me .gallery-box h4 {
+    display: inline-block;
+    font-weight: 600;
+    color: #72767B;
+    font-size: 1rem;
+  }
+  .about-me .gallery-box .caption-hover {
+    margin-left: 0.15rem;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+  }
+  .about-me .gallery-box .media {
+    transition: all 0.2s ease-in-out;
+  }
+  .about-me .gallery-box video {
+    height: 25rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .about-me .gallery-box img {
+    height: 25rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .about-me .gallery-box .me {
+    -o-object-position: center 30%;
+       object-position: center 30%;
+  }
+  .about-me span {
+    color: #F9668A;
+  }
+  .about-me p {
+    margin: 1em 0;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .about-me a {
+    transition: all 0.2s ease-in-out;
+  }
+  .about-me a:visited {
+    color: #363636;
+  }
+  .about-me a:hover {
+    color: #F9668A;
+  }
+  .about-me-intro {
+    width: 100%;
+    max-width: none;
+  }
+  .about-me-gallery {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.7rem;
+    width: 100%;
+  }
+  .about-me-gallery .media {
+    width: 100%;
+    height: auto;
+  }
 }/*# sourceMappingURL=style.css.map */

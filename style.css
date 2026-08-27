@@ -77,6 +77,10 @@ body {
   margin: 0 auto;
 }
 
+.about-container {
+  max-width: 110.75rem;
+}
+
 .container-casestudy {
   max-width: 45rem;
   width: 51%;
@@ -767,11 +771,6 @@ footer {
 .about-me .gallery-box .media {
   transition: all 0.2s ease-in-out;
 }
-.about-me .gallery-box video {
-  height: 20rem;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
 .about-me span {
   color: #F9668A;
 }
@@ -825,11 +824,6 @@ footer {
   }
   .about-me .gallery-box .media {
     transition: all 0.2s ease-in-out;
-  }
-  .about-me .gallery-box video {
-    height: 20rem;
-    -o-object-fit: cover;
-       object-fit: cover;
   }
   .about-me span {
     color: #F9668A;
@@ -995,6 +989,8 @@ footer {
   .portfolio-space .portfolio-space-img img {
     width: 100%;
   }
+}
+@media (max-width: 653px) {
   .about-me .gallery-box:hover .media {
     transform: translate(0px, -4px);
   }
@@ -1012,22 +1008,10 @@ footer {
     opacity: 1;
     transition: all 0.2s ease-in-out;
   }
-  .about-me .gallery-box .media {
-    transition: all 0.2s ease-in-out;
-  }
   .about-me .gallery-box video {
     height: 25rem;
     -o-object-fit: cover;
        object-fit: cover;
-  }
-  .about-me .gallery-box img {
-    height: 25rem;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-  .about-me .gallery-box .me {
-    -o-object-position: center 30%;
-       object-position: center 30%;
   }
   .about-me span {
     color: #F9668A;

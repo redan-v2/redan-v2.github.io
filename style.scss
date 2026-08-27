@@ -97,6 +97,10 @@ body {
     //border: 1px solid red;
 }
 
+.about-container {
+    max-width: 110.75rem;
+}
+
 .container-casestudy {
     max-width: 45rem;
     width: 51%;
@@ -940,7 +944,6 @@ footer {
 //about me
 
 .about-me {
-
     .gallery-box {
 
         &:hover {
@@ -970,10 +973,10 @@ footer {
             transition: all 0.2s ease-in-out;
         }
 
-        video {
-            height: 20rem;
-            object-fit: cover;
-        }
+        // video {
+        //     height: 20rem;
+        //     object-fit: cover;
+        // }
     }
 
     span {
@@ -1022,7 +1025,6 @@ footer {
 //media queries
 
 
-
 @media (max-width: 1200px) {
     .header-br {
         display: none;
@@ -1059,10 +1061,10 @@ footer {
             transition: all 0.2s ease-in-out;
         }
 
-        video {
-            height: 20rem;
-            object-fit: cover;
-        }
+        // video {
+        //     height: 20rem;
+        //     object-fit: cover;
+        // }
     }
 
     span {
@@ -1289,9 +1291,12 @@ footer {
         }
         
     }
+    
 
+}
 
-    .about-me {
+@media (max-width: 653px) {
+        .about-me {
 
     .gallery-box {
 
@@ -1318,23 +1323,23 @@ footer {
             transition: all 0.2s ease-in-out;
         }
 
-     .media {
-            transition: all 0.2s ease-in-out;
-        }
+    //  .media {
+    //         transition: all 0.2s ease-in-out;
+    //     }
 
-        video {
-            height: 25rem;
-            object-fit: cover;
-        }
+         video {
+             height: 25rem;
+             object-fit: cover;
+         }
 
-        img {
-            height: 25rem;
-            object-fit: cover;
-        }
+    //     img {
+    //         height: 25rem;
+    //         object-fit: cover;
+    //     }
 
-        .me {
-            object-position: center 30%;
-        }
+    //     .me {
+    //         object-position: center 30%;
+    //     }
     }
 
     span {
@@ -1381,6 +1386,4 @@ footer {
         
     }
 }
-    
-
 }
